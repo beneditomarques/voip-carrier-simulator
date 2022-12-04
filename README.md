@@ -95,7 +95,7 @@ make up
 **Limitações**
 
  - Para que o container inicialize normalmente, é necessário que as portas abaixo não estejam em uso na máquina host:
-   - "50000-50008/udp" 
-   - "5080:5060/udp" 
-   - "4570:4569/udp"   
+   - 50000-50008/UDP
+   - 5080/UDP
+   - 4570/UDP   
       
