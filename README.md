@@ -32,10 +32,11 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
 
 |Campos|Valores|
 |--|--|
-|Usuário|operadora-1|
-|Senha|dd22c3a768b356e974613b2ea3d93681|
 |Host|sip.operadora1.com.br|
 |Porta|5080/UDP|
+|Usuário|operadora-1|
+|Senha|dd22c3a768b356e974613b2ea3d93681|
+|Codecs|G711a,G711u|
 |Número principal (bina)|40013434|
 |Faixa DDR|3400-3499|
 
@@ -43,10 +44,11 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
    
 |Campos|Valores|
 |--|--|
-|Usuário|operadora-2|
-|Senha|99aa12e79ab46d65161c1fad83f4945a|
 |Host|iax.operadora2.com.br|
 |Porta|4570/UDP|
+|Usuário|operadora-2|
+|Senha|99aa12e79ab46d65161c1fad83f4945a|
+|Codecs|G711a,G711u|
 |Número principal (bina)|30014444|
 |Faixa DDR|4400-4499|
 
