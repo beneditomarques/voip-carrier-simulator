@@ -56,8 +56,8 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
 1 - Baixar o projeto:
 
 ```shell
-git clone X
-cd X
+git clone https://github.com/beneditomarques/voip-carrier-simulator.git
+cd voip-carrier-simulator
 ```
 
 2 - Configurar o arquivo /etc/hosts **da máquina onde está instalado o servidor Asterisk**:
