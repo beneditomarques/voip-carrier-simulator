@@ -10,3 +10,7 @@ services:
     restart: always      
     networks:
       internal: 
+
+networks:
+  internal:
+    external: false      
