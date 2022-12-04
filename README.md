@@ -26,6 +26,8 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
 |--|--|
 |11987878787|Toca por 15 segundos e não atende|
 |08007778080|A chamada é atendida por uma URA|
+|12987878786| Número que não existe |
+|12987878785| Caixa postal |
 | * |Demais números retornam como ocupado |
  
   - Credenciais  da operadora 1
