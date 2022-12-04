@@ -8,5 +8,6 @@ RUN cp -rfv /conf/* / && \
     wget -O core.zip https://www.asterisksounds.org:443/pt-br/download/asterisk-sounds-core-pt-BR-sln16.zip && \    
     wget -O extra.zip https://www.asterisksounds.org:443/pt-br/download/asterisk-sounds-extra-pt-BR-sln16.zip && \    
     unzip -o core.zip && \    
-    unzip -o extra.zip
+    unzip -o extra.zip && \    
+    rm -f *.zip
 WORKDIR /etc/asterisk
