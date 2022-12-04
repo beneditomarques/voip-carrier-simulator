@@ -1,0 +1,12 @@
+version: "3.4"
+services:
+
+  voip-carrier-simulator:
+    image: voip-carrier-simulator:1.0.0
+    ports:
+     - "50000-50008:50000-50008/udp" 
+     - "5080:5060/udp" 
+     - "4570:4569/udp"        
+    restart: always      
+    networks:
+      internal: 
