@@ -107,6 +107,7 @@ type=friend
 context = tronco-SIMULADOR-OPERADORA1
 host = sip.operadora1.com.br
 port=5080
+nat = no
 fromuser = operadora-1
 qualify = yes
 allow = !all,alaw,ulaw
@@ -124,11 +125,6 @@ port=4570
 trunk=yes
 secret=99aa12e79ab46d65161c1fad83f4945a
 context=tronco-SIMULADOR-OPERADORA2
-deny=0.0.0.0/0.0.0.0
-permit=127.0.0.1/255.0.0.0
-permit=10.0.0.0/255.0.0.0
-permit=172.16.0.0/255.252.0.0
-permit=192.168.0.0/255.255.0.0
 ```
 
  - pjsip.conf
