@@ -11,6 +11,7 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
  - Docker >= 20.10.12
  - Docker-compose >= 1.29.2
  - Git >= 2.38.1
+ - Make >= 4.3
 
 **Arquitetura**
 
@@ -55,7 +56,7 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
 |Faixa DDR|4400-4499|
 
 
-**Configuração**
+**Configuração do Voip Carrier Simulator**
  
 1 - Baixar o projeto:
 
@@ -92,6 +93,97 @@ make build ver=1.0.0
 
 ```shell
 make up
+```
+
+**Configuração no Asterisk**
+
+ - sip.conf
+
+```
+register => operadora-1:dd22c3a768b356e974613b2ea3d93681@sip.operadora1.com.br:5080/SIMULADOR-OPERADORA1
+
+[SIMULADOR-OPERADORA1]
+type=friend
+context = tronco-SIMULADOR-OPERADORA1
+host = sip.operadora1.com.br
+port=5080
+fromuser = operadora-1
+qualify = yes
+allow = !all,alaw,ulaw
+```
+
+ - iax.conf:
+
+```
+register => operadora-2:99aa12e79ab46d65161c1fad83f4945a@iax.operadora2.com.br:4570/SIMULADOR-OPERADORA2
+
+[SIMULADOR-OPERADORA2]
+type=friend
+host=iax.operadora2.com.br
+port=4570
+trunk=yes
+secret=99aa12e79ab46d65161c1fad83f4945a
+context=tronco-SIMULADOR-OPERADORA2
+deny=0.0.0.0/0.0.0.0
+permit=127.0.0.1/255.0.0.0
+permit=10.0.0.0/255.0.0.0
+permit=172.16.0.0/255.252.0.0
+permit=192.168.0.0/255.255.0.0
+```
+
+ - pjsip.conf
+
+```
+[transport-udp]
+type = transport
+protocol = udp
+bind = 0.0.0.0
+
+[SIMULADOR-OPERADORA1]
+type = aor
+contact = sip:operadora-1@sip.operadora1.com.br:5080
+
+[SIMULADOR-OPERADORA1]
+type = identify
+endpoint = SIMULADOR-OPERADORA1
+match = sip.operadora1.com.br
+
+[SIMULADOR-OPERADORA1]
+type = auth
+username = SIMULADOR-OPERADORA1
+password = dd22c3a768b356e974613b2ea3d93681
+
+[SIMULADOR-OPERADORA1]
+type = endpoint
+context = tronco-SIMULADOR-OPERADORA1
+allow = !all,alaw,ulaw
+from_user = operadora-1
+auth = SIMULADOR-OPERADORA1
+outbound_auth = SIMULADOR-OPERADORA1
+aors = SIMULADOR-OPERADORA1
+
+[SIMULADOR-OPERADORA1]
+type = registration
+server_uri = sip:operadora-1@sip.operadora1.com.br
+client_uri = sip:operadora-1@sip.operadora1.com.br
+outbound_auth = SIMULADOR-OPERADORA1
+
+
+ - extensions.conf (Exemplo com rotas apenas para o número 08007778080. Ajuste conforme sua necessidade. )
+
+;Discagem pela operadora 1 (chan_sip)
+ exten => _08007778080,1,Dial(PJSIP/08007778080@SIMULADOR-OPERADORA1)
+  same =>              n,Hangup()
+
+;Discagem pela operadora 1 (chan_pjsip)
+ exten => _08007778080,1,Dial(SIP/SIMULADOR-OPERADORA1/08007778080)
+  same =>              n,Hangup()
+
+;Discagem pela operadora 2 (iax)
+ exten => _08007778080,1,Dial(IAX2/SIMULADOR-OPERADORA2/08007778080)
+  same =>              n,Hangup()
+
+
 ```
 
 **Obs:** Ao terminar os testes basta parar o container com o comando ```make down``` .
