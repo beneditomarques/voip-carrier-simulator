@@ -100,7 +100,7 @@ make up
   Configuração para diversos ambientes:
  
  - [Asterisk puro](./docs/asterisk.md)
- - [Issabel](./docs/asterisk.md)
+ - [Issabel](./docs/issabel.md)
 
 **Obs:** Ao terminar os testes basta parar o container com o comando ```make down``` .
 
