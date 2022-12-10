@@ -16,6 +16,7 @@
 ![./img6.png](./img6-iax.png)
 ![./img7.png](./img7-iax.png)
 
+
 # Rotas de saída
 
  - **Números para sair pelas 2 operadoras (transbordo)**
