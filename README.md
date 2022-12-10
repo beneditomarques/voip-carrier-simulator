@@ -106,8 +106,12 @@ make up
 
 **Limitações**
 
+ - Simulador deve estar na mesma máquina onde o Asterisk está sendo executado ou em uma máquina que esteja dentro da mesma rede local.
+
  - Para que o container inicialize normalmente, é necessário que as portas abaixo não estejam em uso na máquina host:
    - 50000-50008/UDP
    - 5080/UDP
    - 4570/UDP   
+
+
       
