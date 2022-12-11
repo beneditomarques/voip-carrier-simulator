@@ -17,6 +17,9 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
 
 ![architecture.png](architecture.png)
 
+**Ambientes**
+
+![envionments.png](environments.png)
 
 **Recursos**
 
