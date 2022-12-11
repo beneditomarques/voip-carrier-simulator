@@ -13,6 +13,18 @@ Este simulador servirá para estudar o funcionamento de configuração de entron
  - Git >= 2.38.1
  - Make >= 4.3
 
+
+_Debian/Ubuntu:_
+```shell
+apt update ; apt install git make docker docker-compose -y
+```
+
+_Centos 7/Fedora:_
+```shell
+yum install git make docker docker-compose -y
+systemctl enable --now docker
+```
+
 **Arquitetura**
 
 ![architecture.png](architecture.png)

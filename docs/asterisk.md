@@ -86,16 +86,15 @@ trust_id_inbound=no
 
 ```
 ;Discagem pela operadora 1 (chan_sip)
- exten => _08007778080,1,Dial(PJSIP/08007778080@SIMULADOR-OPERADORA1)
+ exten => _08007778080,1,Dial(SIP/SIMULADOR-OPERADORA1/08007778080)
   same =>              n,Hangup()
 
 ;Discagem pela operadora 1 (chan_pjsip)
- exten => _08007778080,1,Dial(SIP/SIMULADOR-OPERADORA1/08007778080)
+ exten => _08007778080,1,Dial(PJSIP/08007778080@SIMULADOR-OPERADORA1)
   same =>              n,Hangup()
 
 ;Discagem pela operadora 2 (iax)
  exten => _08007778080,1,Dial(IAX2/SIMULADOR-OPERADORA2/08007778080)
   same =>              n,Hangup()
-
 
 ```
