@@ -45,7 +45,7 @@ systemctl enable --now docker
 |08007778080|A chamada é atendida por uma URA|
 |12987878786| Número que não existe |
 |12987878785| Caixa postal |
-|999999991| Ocupado caso a conta sip não esteja autenticada, e chama caso a conta sip esteja configurada (simulando um número externo) |
+|999999991| Ocupado (se discado pela operadora 1), ou chama na conta sip configurada (se discado pela operadora 2) |
 | * |Demais números retornam como ocupado |
  
  
