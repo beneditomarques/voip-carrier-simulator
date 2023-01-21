@@ -36,6 +36,7 @@ systemctl enable --now docker
 **Recursos**
 
  - É possível simular entroncamento com 2 operadoras Voip: uma SIP (operadora 1) e outra IAX (operadora 2).
+ - É possível simular discagem para números externos. 1 deles (999999991) pode ser utilizado através de um softphone autenticado.
  - Status retornados por alguns números:
 
 |Número|Status|
@@ -44,7 +45,9 @@ systemctl enable --now docker
 |08007778080|A chamada é atendida por uma URA|
 |12987878786| Número que não existe |
 |12987878785| Caixa postal |
+|999999991| Ocupado caso a conta sip não esteja autenticada, e chama caso a conta sip esteja configurada (simulando um número externo) |
 | * |Demais números retornam como ocupado |
+ 
  
   - Credenciais  da operadora 1
 
@@ -69,6 +72,19 @@ systemctl enable --now docker
 |Codecs|G711a,G711u|
 |Número principal (bina)|30014444|
 |Faixa DDR|4400-4499|
+
+  
+
+  - Credenciais  da conta SIP 999999991
+   
+|Campos|Valores|
+|--|--|
+|Porta|5080/UDP|
+|Usuário|999999991|
+|Senha|6198997e998d11edad18576bf62a8c66|
+
+![sip-account](docs/img12-external-account.png)
+
 
 
 **Configuração do Voip Carrier Simulator**
@@ -119,6 +135,14 @@ make up
 
 **Obs:** Ao terminar os testes basta parar o container com o comando ```make down``` .
 
+
+**Teste com BINA**
+
+ - Ao enviar uma chamada para o número 999999991, você deverá setar a bina de acordo com o ranga DDR de cada operadora por onde estiver enviando a ligação. Caso a bina enviada seja diferente do range, o simulador irá setar a bina padrão de cada operadora (40013444 para a operadora 1, e 30014444 para a operadora 2):
+
+![bina](./docs/Voip%20simulator%20-%20bina.png)      
+
+
 **Limitações**
 
  - Simulador deve estar na mesma máquina onde o Asterisk está sendo executado ou em uma máquina que esteja dentro da mesma rede local.
@@ -128,5 +152,3 @@ make up
    - 5080/UDP
    - 4570/UDP   
 
-
-      
