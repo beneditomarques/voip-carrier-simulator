@@ -138,7 +138,7 @@ make up
 
 **Teste com BINA**
 
- - Ao enviar uma chamada para o número 999999991, você deverá setar a bina de acordo com o ranga DDR de cada operadora por onde estiver enviando a ligação. Caso a bina enviada seja diferente do range, o simulador irá setar a bina padrão de cada operadora (40013444 para a operadora 1, e 30014444 para a operadora 2):
+ - Ao enviar uma chamada para o número 999999991, você deverá enviar a chamada somente pela OPERADORA 2 (IAX) e setar a bina de acordo com o ranga DDR da operadora. Caso a bina enviada seja diferente do range, o simulador irá setar a bina padrão da operadora (30014444):
 
 ![bina](./docs/Voip%20simulator%20-%20bina.png)      
 
