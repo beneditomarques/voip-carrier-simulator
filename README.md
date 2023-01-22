@@ -46,6 +46,8 @@ systemctl enable --now docker
 |12987878786| Número que não existe |
 |12987878785| Caixa postal |
 |999999991| Ocupado (se discado pela operadora 1), ou chama na conta sip configurada (se discado pela operadora 2) |
+|8830348888| Atende a chamada por 3 minutos |
+|18002446227| Atende a chamada por 3 minutos (Chamada DDI- EUA) |
 | * |Demais números retornam como ocupado |
  
  
