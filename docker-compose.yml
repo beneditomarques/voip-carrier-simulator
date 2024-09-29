@@ -2,6 +2,7 @@ version: "3.4"
 services:
 
   voip-carrier-simulator:
-    image: voip-carrier-simulator:1.0.0
+    build:
+      context: .
     restart: always      
     network_mode: host
