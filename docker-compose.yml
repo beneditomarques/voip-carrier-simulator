@@ -6,3 +6,5 @@ services:
       context: .
     restart: always      
     network_mode: host
+    volumes:
+     - ./conf/srv/etc/asterisk/extensions.conf:/srv/etc/asterisk/extensions.conf
